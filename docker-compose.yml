@@ -1,0 +1,9 @@
+version: '3'
+services:
+  app:
+    build: .
+    environment:
+      - BACKUP_NAME
+      - MONGO_URI
+      - ENCRYPTION_PASSWORD
+      - GCS_BUCKET
