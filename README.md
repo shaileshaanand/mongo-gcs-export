@@ -4,9 +4,10 @@ A script to create encrypted acrhive backups of a mongodb database to Google Clo
 
 ### Environment Variables
 
-| Name                | Description                      |
-| ------------------- | -------------------------------- |
-| BACKUP_NAME         | Backup File Prefix               |
-| MONGO_URI           | MongoDB URI                      |
-| ENCRYPTION_PASSWORD | Password to decrypt the backup   |
-| GCS_BUCKET          | Google Cloud Storage bucket name |
+| Name                | Description                                   |
+| ------------------- | --------------------------------------------- |
+| BACKUP_NAME         | Backup File Prefix                            |
+| MONGO_URI           | MongoDB URI                                   |
+| ENCRYPTION_PASSWORD | Password to decrypt the backup                |
+| GCS_BUCKET          | Google Cloud Storage bucket name              |
+| KEY_FILE            | path to Google Cloud Service Account Key File |
