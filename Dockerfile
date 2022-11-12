@@ -1,14 +1,13 @@
-FROM mongo:5-focal
+FROM alpine:3
 
-RUN apt-get update
-RUN apt-get install -y apt-transport-https ca-certificates gnupg curl
-RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
-RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+ENV PYTHONUNBUFFERED=1
 
-RUN apt-get update && apt-get install google-cloud-cli -y
+RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.6/main' >> /etc/apk/repositories
+RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.6/community' >> /etc/apk/repositories
 
-RUN apt remove -y curl
-RUN apt clean && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache mongodb-tools python3 py3-pip
+
+RUN pip3 install --upgrade --no-cache gsutil
 
 ADD . /app
 
