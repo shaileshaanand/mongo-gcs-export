@@ -8,5 +8,5 @@ services:
       - ENCRYPTION_PASSWORD
       - GCS_BUCKET
     volumes:
-      - ${KEY_FILE}:/keyfile.json
+      - ${KEY_FILE}:/secrets/keyfile.json
     command: sh /app/backup.sh

@@ -10,7 +10,7 @@ echo $ENCRYPTION_PASSWORD | gpg --yes --batch --passphrase-fd 0 -c $FILENAME
 rm $FILENAME
 
 # auth to google cloud
-gcloud auth activate-service-account --key-file=/keyfile.json
+gcloud auth activate-service-account --key-file=/secrets/keyfile.json
 
 #upload to gcs
 gsutil cp $FILENAME.gpg gs://$GCS_BUCKET/$FILENAME.gpg
