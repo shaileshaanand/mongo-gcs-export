@@ -9,5 +9,7 @@ RUN apk add --no-cache mongodb-tools gnupg
 
 ADD . /app
 
+RUN chmod +x /app/backup.sh
+
 CMD ["/app/backup.sh"]
 
